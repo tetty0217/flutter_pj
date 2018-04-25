@@ -30,7 +30,7 @@ class ChatScreenState extends State<ChatScreen> {
           title: new Text("tetty_app"),
           backgroundColor: Theme.of(context).primaryColor,
       ),
-      body: new Column(                                        //modified
+      body: new Column(
         children: <Widget>[                                         
           new Flexible(                                             
             child: new ListView.builder(                             
@@ -38,16 +38,16 @@ class ChatScreenState extends State<ChatScreen> {
               reverse: true,                                        
               itemBuilder: (_, int index) => _messages[index],      
               itemCount: _messages.length,                          
-            ),                                                      
-          ),                                                        
+            ),
+          ),
           new Divider(height: 1.0),                                 
           new Container(                                            
             decoration: new BoxDecoration(
-                color: Theme.of(context).cardColor),                  
-            child: _buildTextComposer(),                       //modified
-          ),                                                        
-        ],                                                          
-      ),                                                            
+                color: Theme.of(context).cardColor),
+            child: _buildTextComposer(),
+          ),
+        ],
+      ),
     );
   }
 
@@ -116,7 +116,10 @@ class ChatMessage extends StatelessWidget {
               new Text(_name, style: Theme.of(context).textTheme.subhead),
               new Container(
                 margin: const EdgeInsets.only(top: 5.0),
-                child: new Text(text),
+                child: new Text(
+                  text,
+                  maxLines: 5,
+                ),
               ),
             ],
           ),
